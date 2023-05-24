@@ -1,4 +1,4 @@
-import { Home, Users } from "react-feather";
+import { Home } from "react-feather";
 
 export default [  
   {
@@ -8,11 +8,11 @@ export default [
     isAccess: true,
     navLink: "/post_office",
   },
-  {
-    id: "user",
-    title: "User",
-    icon: <Users size={20} />,
-    isAccess: true,
-    navLink: "/user",
-  },
+  // {
+  //   id: "user",
+  //   title: "User",
+  //   icon: <Users size={20} />,
+  //   isAccess: true,
+  //   navLink: "/user",
+  // },
 ];
