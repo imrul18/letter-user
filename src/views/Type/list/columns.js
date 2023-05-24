@@ -29,17 +29,17 @@ const renderAction = (row) => {
           />
         )}
         <UncontrolledTooltip placement="top" target={`status-${row.id}`}>
-          {row?.status ? "Deactive Post Office" : "Active Post Office"}
+          {row?.status ? "Deactive Type" : "Active Type"}
         </UncontrolledTooltip>
       </Link>
       <Link
         className="text-truncate text-capitalize align-middle"
-        to={`/post_office_edit/${row.id}`}
+        to={`/type_edit/${row.id}`}
         id={`edit-${row.id}`}
       >
         <Edit size={18} className={`text-info me-50`} />
         <UncontrolledTooltip placement="top" target={`edit-${row.id}`}>
-          {row?.status ? "Edit Post Office" : "Edit Post Office"}
+          {row?.status ? "Edit Type" : "Edit Type"}
         </UncontrolledTooltip>
       </Link>
       <Link
@@ -52,7 +52,7 @@ const renderAction = (row) => {
       >
         <Trash2 size={18} className={`text-info me-50`} />
         <UncontrolledTooltip placement="top" target={`delete-${row.id}`}>
-          {row?.status ? "Delete Post Office" : "Delete Post Office"}
+          {row?.status ? "Delete Type" : "Delete Type"}
         </UncontrolledTooltip>
       </Link>
     </div>
@@ -63,22 +63,22 @@ export const columns = [
   {
     name: "Name",
     sortable: true,
-    minWidth: "220px",
+    minWidth: "120px",
     sortField: "name",
     selector: (row) => row.name,
     cell: (row) => (
       <span className="fw-bolder">
-        {row?.code}-{row?.name}
+        {row?.name}
       </span>
     ),
   },
   {
-    name: "Address",
+    name: "Description",
     sortable: true,
-    minWidth: "220px",
-    sortField: "email",
-    selector: (row) => row.phone,
-    cell: (row) => <span className="text-capitalize">{row?.address}</span>,
+    minWidth: "320px",
+    sortField: "description",
+    selector: (row) => row.description,
+    cell: (row) => <span className="text-capitalize">{row?.description}</span>,
   },
   {
     name: "Status",

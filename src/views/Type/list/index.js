@@ -3,7 +3,7 @@ import "@styles/react/libs/tables/react-dataTable-component.scss";
 import { Fragment, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { DebounceInput } from "react-debounce-input";
-import { ChevronDown, Home } from "react-feather";
+import { ChevronDown, PlusCircle } from "react-feather";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ import { columns } from "./columns";
 const index = () => {
   const dispatch = useDispatch();
   const { data, params, paramsData } = useSelector(
-    (state) => state.postOffices
+    (state) => state.types
   );
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const index = () => {
             xl="3"
             className="d-flex align-items-end align-content-center flex-wrap"
           >
-            <div>Search by Post Office code/name</div>
+            <div>Search by Type</div>
           </Col>
           <Col
             xl="3"
@@ -62,10 +62,10 @@ const index = () => {
                 color="primary"
                 onClick={(e) => {
                   e.preventDefault();
-                  navigate("/post_office_add");
+                  navigate("/type_add");
                 }}
               >
-                <Home size={14} /> Post Office
+                <PlusCircle size={14} /> Type
               </Button>
             </div>
           </Col>

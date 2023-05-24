@@ -1,18 +1,26 @@
-import { Home, Users } from "react-feather";
+import { File, FilePlus, Home } from "react-feather";
 
 export default [  
   {
-    id: "post_office",
-    title: "Post Office",
+    id: "type",
+    title: "Type",
     icon: <Home size={20} />,
     isAccess: true,
-    navLink: "/post_office",
+    navLink: "/type",
   },
   {
-    id: "user",
-    title: "User",
-    icon: <Users size={20} />,
+    id: "letter",
+    title: "Letter",
+    icon: <FilePlus size={20} />,
     isAccess: true,
-    navLink: "/user",
+    navLink: "/letter",
+  },
+
+  {
+    id: "letter-list",
+    title: "Letter List",
+    icon: <File size={20} />,
+    isAccess: true,
+    navLink: "/list-letter",
   },
 ];

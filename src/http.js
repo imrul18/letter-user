@@ -3,8 +3,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 let Api = axios.create({
-  baseURL: 'http://api.letter.imrul.xyz/api/admin',
-  // baseURL: 'http://letter.test/api/admin',
+  baseURL: 'http://api.letter.imrul.xyz/api/user',
+  // baseURL: 'http://letter.test/api/user',
 
   headers: {
     // "Content-type": "application/json",

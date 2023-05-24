@@ -8,8 +8,8 @@ import HorizontalLayout from "@src/layouts/HorizontalLayout";
 import VerticalLayout from "@src/layouts/VerticalLayout";
 
 // ** Routes
-import PostOfficeRoute from "@src/views/PostOffice/Route";
-import UserRoute from "@src/views/User/Route";
+import LetterRoute from "@src/views/Letter/Route";
+import TypeRoute from "@src/views/Type/Route";
 
 // ** Route Components
 import PublicRoute from "@components/routes/PublicRoute";
@@ -40,12 +40,12 @@ const Error = lazy(() => import("../../views/Error"));
 
 // ** Merge Routes
 const Routes = [  
-  ...PostOfficeRoute,
-  ...UserRoute,
+  ...TypeRoute,
+  ...LetterRoute,
   {
     path: "/",
     index: true,
-    element: <Navigate replace to={localStorage.getItem('accessToken') ? '/post_office' : '/login'} />,
+    element: <Navigate replace to={localStorage.getItem('accessToken') ? '/type' : '/login'} />,
   },
   {
     path: "/dashboard",

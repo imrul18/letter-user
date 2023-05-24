@@ -1,6 +1,6 @@
 import Auth from "@src/views/Auth/store";
-import postOffices from "@src/views/PostOffice/store";
-import users from "@src/views/User/store";
+import letters from "@src/views/Letter/store";
+import types from "@src/views/Type/store";
 
 import layout from "./layout";
 import navbar from "./navbar";
@@ -9,8 +9,8 @@ const rootReducer = {
   navbar,
   layout,
   Auth,
-  postOffices,
-  users
+  types,
+  letters
 };
 
 export default rootReducer;

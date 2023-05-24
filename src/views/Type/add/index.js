@@ -19,7 +19,7 @@ import { addData, setUploadData } from "../store";
 const index = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { uploadData, paramsData } = useSelector((state) => state.postOffices);
+  const { uploadData, paramsData } = useSelector((state) => state.types);
 
   const onChange = (e) => {
     dispatch(
@@ -30,7 +30,7 @@ const index = () => {
   const onSubmit = async () => {
     const res = await dispatch(addData());
     if (res?.payload) {
-      navigate("/post_office");
+      navigate("/type");
     }
   };
 
@@ -41,7 +41,7 @@ const index = () => {
           <Form>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">New Post Office</CardTitle>
+                <CardTitle tag="h4">New Type</CardTitle>
               </CardHeader>
               <CardBody>
                 <Row>
@@ -57,30 +57,17 @@ const index = () => {
                       value={uploadData?.name}
                       onChange={onChange}
                     />
-                  </Col>
+                  </Col>                  
                   <Col sm="12">
-                    <Label className="form-label" for="code">
-                      Code
-                    </Label>
-                    <Input
-                      type="text"
-                      name="code"
-                      id="code"
-                      placeholder="Code"
-                      value={uploadData?.code}
-                      onChange={onChange}
-                    />
-                  </Col>
-                  <Col sm="12">
-                    <Label className="form-label" for="address">
-                      Address
+                    <Label className="form-label" for="description">
+                    Description
                     </Label>
                     <Input
                       type="textarea"
-                      name="address"
-                      id="address"
-                      placeholder="Address"
-                      value={uploadData?.address}
+                      name="description"
+                      id="description"
+                      placeholder="Description"
+                      value={uploadData?.description}
                       onChange={onChange}
                     />
                   </Col>
