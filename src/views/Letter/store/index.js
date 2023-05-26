@@ -28,6 +28,8 @@ export const updateData = createAsyncThunk(
       dispatch(setParamsData({ loading: false }));
       return true;
     }
+    dispatch(setParamsData({ loading: false }));
+    return false;
   }
 );
 
@@ -43,8 +45,7 @@ export const lettersSlice = createSlice({
   name: "letters",
   initialState: {
     data: [],
-    params: {
-    },
+    params: {},
 
     paramsData: {
       loading: false,
@@ -63,11 +64,13 @@ export const lettersSlice = createSlice({
         state.uploadData = action.payload;
       })
       .addCase(getTypeOptions.fulfilled, (state, action) => {
-        state.options = { ...state.options, typeOptions: action.payload}
+        state.options = { ...state.options, typeOptions: action.payload };
       })
       .addCase(updateData.fulfilled, (state, action) => {
-        state.uploadData = {};
-        state.params = {};
+        if (action.payload) {
+          state.uploadData = {};
+          state.params = {};
+        }
       });
   },
   reducers: {

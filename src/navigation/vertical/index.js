@@ -1,4 +1,4 @@
-import { File, FilePlus, Home } from "react-feather";
+import { File, FilePlus, Home, ShoppingBag } from "react-feather";
 
 export default [  
   {
@@ -22,5 +22,12 @@ export default [
     icon: <File size={20} />,
     isAccess: true,
     navLink: "/list-letter",
+  },
+  {
+    id: "bag",
+    title: "Bag",
+    icon: <ShoppingBag size={20} />,
+    isAccess: true,
+    navLink: "/bag",
   },
 ];

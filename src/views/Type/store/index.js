@@ -18,6 +18,7 @@ export const addData = createAsyncThunk(
     const data = getState()?.types?.uploadData;
     const response = await Api.post("type", data);
     if (response?.data?.status === 200 || response?.data?.status === 201) {
+      dispatch(setParamsData({ loading: false }));
       return true;
     }
     dispatch(setParamsData({ loading: false }));
@@ -36,6 +37,7 @@ export const updateData = createAsyncThunk(
     const data = getState()?.types?.uploadData;
     const response = await Api.post(`type-update/${id}`, data);
     if (response?.data?.status === 200 || response?.data?.status === 201) {
+    dispatch(setParamsData({ loading: false }));
       return true;
     }
     dispatch(setParamsData({ loading: false }));
@@ -70,7 +72,7 @@ export const typesSlice = createSlice({
     },
     paramsData: {
       total: 1,
-      loading: false
+      loading: false,
     },
 
     uploadData: {},
@@ -86,6 +88,11 @@ export const typesSlice = createSlice({
       })
       .addCase(getData.fulfilled, (state, action) => {
         state.uploadData = action.payload;
+      })
+      .addCase(addData.fulfilled, (state, action) => {
+        if (action.payload) {
+          state.uploadData = {};
+        }
       });
   },
   reducers: {
@@ -101,7 +108,6 @@ export const typesSlice = createSlice({
   },
 });
 
-export const { setParams, setParamsData, setUploadData } =
-  typesSlice.actions;
+export const { setParams, setParamsData, setUploadData } = typesSlice.actions;
 
 export default typesSlice.reducer;

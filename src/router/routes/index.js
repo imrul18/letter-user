@@ -8,7 +8,9 @@ import HorizontalLayout from "@src/layouts/HorizontalLayout";
 import VerticalLayout from "@src/layouts/VerticalLayout";
 
 // ** Routes
+import BagRoute from "@src/views/Bag/Route";
 import LetterRoute from "@src/views/Letter/Route";
+import LetterListRoute from "@src/views/LetterList/Route";
 import TypeRoute from "@src/views/Type/Route";
 
 // ** Route Components
@@ -42,6 +44,8 @@ const Error = lazy(() => import("../../views/Error"));
 const Routes = [  
   ...TypeRoute,
   ...LetterRoute,
+  ...LetterListRoute,
+  ...BagRoute,
   {
     path: "/",
     index: true,
