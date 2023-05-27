@@ -9,15 +9,15 @@ import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Row } from "reactstrap";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import { getAllData, setParams } from "../store/index";
 import { columns } from "./columns";
 
 const index = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { paramsData, params, data } = useSelector(
-    (state) => state.bags
-  );
+  const { paramsData, params, data } = useSelector((state) => state.bags);
 
   useEffect(() => {
     dispatch(getAllData());
@@ -26,10 +26,25 @@ const index = () => {
     return (
       <div className="invoice-list-table-header w-100 me-1 ms-50 mt-2 mb-75">
         <Row className="mb-2">
-          <Col
-            xl="8"
-            className="d-flex align-content-center justify-content-end flex-wrap"
-          ></Col>
+          <Col xl="8">
+            <Button
+              className="add-new-btn"
+              color="primary"
+              onClick={() => {
+                const MySwal = withReactContent(Swal);
+                MySwal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: "Under Development",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              }}
+              outline
+            >
+              Print
+            </Button>
+          </Col>
           <Col
             xl="2"
             className="d-flex align-content-center justify-content-end flex-wrap"
@@ -88,8 +103,9 @@ const index = () => {
     <div className="app-user-list">
       <Fragment>
         <Card className="overflow-hidden">
-
-          <span className="p-2"><CustomHeader /></span>
+          <span className="p-2">
+            <CustomHeader />
+          </span>
           {!paramsData?.isBag > 0 ? (
             paramsData?.message ? (
               <div className="text-center mb-2">
@@ -98,7 +114,7 @@ const index = () => {
             ) : (
               <div className="text-center mb-2">
                 <Button
-              color="primary"
+                  color="primary"
                   onClick={() => {
                     navigate(`/bag-create/${params?.date}`);
                   }}

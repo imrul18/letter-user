@@ -24,6 +24,16 @@ export const getAllLetter = createAsyncThunk(
   }
 );
 
+export const getBagLetter = createAsyncThunk(
+  "bags/getBagLetter",
+  async (id, { dispatch }) => {
+    dispatch(setParamsData({ loading: true }));
+    const response = await Api.get(`bag-letter/${id}`);
+    dispatch(setParamsData({ loading: false }));
+    return response.data;
+  }
+);
+
 export const addData = createAsyncThunk(
   "bags/addData",
   async (_, { getState, dispatch }) => {
@@ -44,31 +54,12 @@ export const getData = createAsyncThunk("bags/getData", async (id) => {
   return response.data;
 });
 
-export const updateData = createAsyncThunk(
-  "letters/updateData",
-  async (id, { getState, dispatch }) => {
-    dispatch(setParamsData({ loading: true }));
-    const data = getState()?.letters?.uploadData;
-    const response = await Api.post(`update/${id}`, data);
-    if (response?.data?.status === 200 || response?.data?.status === 201) {
-      dispatch(setParamsData({ loading: false }));
-      return true;
-    }
-  }
-);
-
-export const getTypeOptions = createAsyncThunk(
-  "letters/getTypeOptions",
-  async () => {
-    const response = await Api.get("option-type");
-    return response.data;
-  }
-);
 
 export const bagsSlice = createSlice({
   name: "bags",
   initialState: {
     data: [],
+    bagLetter: {},
     params: {
       perPage: 10,
       page: 1,
@@ -123,6 +114,9 @@ export const bagsSlice = createSlice({
         });
 
         state.uploadData = { columns: finalData };
+      })
+      .addCase(getBagLetter.fulfilled, (state, action) => {
+        state.bagLetter = action.payload;
       });
   },
   reducers: {
