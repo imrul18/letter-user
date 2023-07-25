@@ -11,7 +11,6 @@ import VerticalLayout from "@src/layouts/VerticalLayout";
 import BagRoute from "@src/views/Bag/Route";
 import LetterRoute from "@src/views/Letter/Route";
 import LetterListRoute from "@src/views/LetterList/Route";
-import TypeRoute from "@src/views/Type/Route";
 
 // ** Route Components
 import PublicRoute from "@components/routes/PublicRoute";
@@ -19,6 +18,7 @@ import PublicRoute from "@components/routes/PublicRoute";
 // ** Utils
 
 import { isObjEmpty } from "@utils";
+import ChangePassword from "../../views/Auth/ChangePassword";
 
 const getLayout = {
   blank: <BlankLayout />,
@@ -42,14 +42,13 @@ const Error = lazy(() => import("../../views/Error"));
 
 // ** Merge Routes
 const Routes = [  
-  ...TypeRoute,
   ...LetterRoute,
   ...LetterListRoute,
   ...BagRoute,
   {
     path: "/",
     index: true,
-    element: <Navigate replace to={localStorage.getItem('accessToken') ? '/type' : '/login'} />,
+    element: <Navigate replace to={localStorage.getItem('accessToken') ? '/letter' : '/login'} />,
   },
   {
     path: "/dashboard",
@@ -65,6 +64,10 @@ const Routes = [
     meta: {
       layout: "blank",
     },
+  },
+  {
+    path: "/change-password",
+    element: <ChangePassword />,
   },
   {
     path: "/register",

@@ -18,7 +18,7 @@ const index = () => {
 
   useEffect(() => {
     dispatch(getAllLetter());
-  }, [params]);
+  }, []);
 
   function UncontrolledBoard() {
     const onCardDragEnd = (card) => {

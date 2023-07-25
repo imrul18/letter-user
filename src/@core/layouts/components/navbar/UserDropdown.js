@@ -6,7 +6,7 @@ import Avatar from "@components/avatar";
 
 // ** Third Party Components
 import {
-  Power
+  Power, Settings
 } from "react-feather";
 
 // ** Reactstrap Imports
@@ -88,10 +88,14 @@ const UserDropdown = () => {
           <HelpCircle size={14} className="me-75" />
           <span className="align-middle">FAQ</span>
         </DropdownItem> */}
+        <DropdownItem tag={Link} to='/change-password'>
+          <Settings size={14} className="me-75" />
+          <span className="align-middle">Change Password</span>
+        </DropdownItem>
         <DropdownItem tag={Link} onClick={logout}>
           <Power size={14} className="me-75" />
           <span className="align-middle">Logout</span>
-        </DropdownItem>
+        </DropdownItem>        
       </DropdownMenu>
     </UncontrolledDropdown>
   );

@@ -75,7 +75,7 @@ const index = () => {
           sortIcon={<ChevronDown />}
           className="react-dataTable"
           paginationComponent={CustomPagination}
-          data={bagLetter?.letter}
+          data={bagLetter?.letters}
           subHeaderComponent={<CustomHeader />}
         />
       </div>

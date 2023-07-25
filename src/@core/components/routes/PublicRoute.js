@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Navigate } from "react-router-dom";
 
 // ** Utils
-import { getUserData, getHomeRouteForLoggedInUser } from "@utils";
+import { getHomeRouteForLoggedInUser, getUserData } from "@utils";
 
 const PublicRoute = ({ children, route }) => {
   if (route) {

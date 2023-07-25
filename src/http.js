@@ -1,10 +1,10 @@
+import { baseUrl } from "@src/config";
 import axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
 let Api = axios.create({
-  baseURL: 'http://api.letter.imrul.xyz/api/user',
-  // baseURL: 'http://letter.test/api/user',
+  baseURL: baseUrl,
 
   headers: {
     // "Content-type": "application/json",
@@ -38,7 +38,7 @@ let Api = axios.create({
 
   validateStatus: function (status) {
     if (status === 401) {
-      localStorage.removeItem("user");
+      localStorage.clear();
       window.location.href = "/";
     }
     

@@ -81,7 +81,7 @@ const Login = () => {
                 <Input
                   type="text"
                   id="phone"
-                  name="phone"
+                  name="username"
                   placeholder="016XXXXXXXX"
                   autoFocus
                   onChange={onChange}
