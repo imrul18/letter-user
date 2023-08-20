@@ -51,7 +51,14 @@ export const lettersSlice = createSlice({
       loading: false,
     },
 
-    uploadData: {},
+    defaultData: {
+      letter_type: 1,
+      isAd: 1,
+      weight: 100,
+      cost: 5,
+    },
+    uploadData: {
+    },
 
     options: {},
   },
@@ -61,7 +68,11 @@ export const lettersSlice = createSlice({
         state.data = action.payload;
       })
       .addCase(getData.fulfilled, (state, action) => {
-        state.uploadData = action.payload;
+        if (action?.payload?.status == 1) {
+          state.uploadData = { ...action.payload, ...state.defaultData };
+        } else {
+          state.uploadData = action.payload;
+        }
       })
       .addCase(getTypeOptions.fulfilled, (state, action) => {
         state.options = { ...state.options, typeOptions: action.payload };
@@ -86,10 +97,13 @@ export const lettersSlice = createSlice({
     setUploadData: (state, action) => {
       state.uploadData = { ...state.uploadData, ...action.payload };
     },
+    setDefaultData: (state, action) => {
+      state.defaultData = { ...state.defaultData, ...action.payload };
+    },
   },
 });
 
-export const { setParams, setData, setParamsData, setUploadData } =
+export const { setParams, setData, setParamsData, setUploadData, setDefaultData } =
   lettersSlice.actions;
 
 export default lettersSlice.reducer;
