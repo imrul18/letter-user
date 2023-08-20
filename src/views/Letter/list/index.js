@@ -27,7 +27,7 @@ const index = () => {
         <CardBody>
           <Row className="mb-2">
             <Col
-              xl="3"
+              xl="4"
               className="d-flex align-items-end align-content-center flex-wrap"
             >
               <div>Search by Letter Number/Sender Phone Number</div>
