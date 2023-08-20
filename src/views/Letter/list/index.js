@@ -30,7 +30,7 @@ const index = () => {
               xl="3"
               className="d-flex align-items-end align-content-center flex-wrap"
             >
-              <div>Search by Letter Number</div>
+              <div>Search by Letter Number/Sender Phone Number</div>
             </Col>
             <Col
               xl="3"
