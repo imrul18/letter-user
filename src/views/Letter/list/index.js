@@ -80,7 +80,7 @@ const index = () => {
                   <div className="mx-2">
                     <div>ID: {item?.letter_id}</div>
                     <div>
-                      Date: {moment(item?.created_at).format("d-MMM-yyyy")}
+                      Date: {moment(item?.created_at).format("dd-MMM-yyyy")}
                     </div>
                     <div>Sender: {item?.sender_phone}</div>
                     <div>Receiver: {item?.receiver_phone}</div>
